@@ -20,7 +20,7 @@ class _CustomAnimation1State extends State<CustomAnimation1>
     _controller = AnimationController(
       vsync: this, // Syncs with screen refresh rate
       duration: Duration(seconds: 2), // Animation time
-    )..repeat(); // Repeats back and forth
+    )..repeat(reverse: true); // Repeats back and forth
     _sizeAnimation = Tween<double>(begin: 100, end: 300).animate(_controller);
 
     // _animation =
@@ -34,40 +34,40 @@ class _CustomAnimation1State extends State<CustomAnimation1>
         child: Column(
           spacing: 20,
           children: [
-            // Center(
-            //   child: FadeTransition(
-            //     // Automatically animates opacity
-            //     opacity: _controller,
-            //     child: Container(
-            //       width: 200,
-            //       height: 200,
-            //       color: Colors.blue,
-            //     ),
-            //   ),
-            // ),
-            // AnimatedBuilder(
-            //   animation: _sizeAnimation,
-            //   builder: (context, child) => Icon(
-            //     Icons.favorite,
-            //     color: Colors.red,
-            //     size: _sizeAnimation.value,
-            //   ),
-            // )
-            // AnimatedBuilder(
-            //   animation: _sizeAnimation,
-            //   builder: (context, child) {
-            //     return Transform.flip(
-            //       flipX: true,
-            //       flipY: true,
-            //       origin: Offset(_sizeAnimation.value, _sizeAnimation.value),
-            //       child: Container(
-            //         width: 100,
-            //         height: 100,
-            //         color: Colors.purple,
-            //       ),
-            //     );
-            //   },
-            // ),
+            Center(
+              child: FadeTransition(
+                // Automatically animates opacity
+                opacity: _controller,
+                child: Container(
+                  width: 200,
+                  height: 200,
+                  color: Colors.blue,
+                ),
+              ),
+            ),
+            AnimatedBuilder(
+              animation: _sizeAnimation,
+              builder: (context, child) => Icon(
+                Icons.favorite,
+                color: Colors.red,
+                size: _sizeAnimation.value,
+              ),
+            ),
+            AnimatedBuilder(
+              animation: _sizeAnimation,
+              builder: (context, child) {
+                return Transform.flip(
+                  flipX: true,
+                  flipY: true,
+                  origin: Offset(_sizeAnimation.value, _sizeAnimation.value),
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.purple,
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
