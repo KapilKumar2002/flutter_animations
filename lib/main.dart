@@ -5,6 +5,8 @@ import 'package:learn_animations/animations/custom_animation_1.dart';
 import 'package:learn_animations/animations/draggable.dart';
 import 'package:learn_animations/animations/physics_model.dart';
 import 'package:learn_animations/animations/spring_animation_example.dart';
+import 'package:learn_animations/app_theme/login_teddy_animation.dart';
+import 'package:learn_animations/app_theme/story_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: CustomAnimation1(),
+      home: LoginPage(),
     );
   }
 }

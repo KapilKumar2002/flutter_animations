@@ -21,7 +21,7 @@ class _CustomAnimation1State extends State<CustomAnimation1>
       vsync: this, // Syncs with screen refresh rate
       duration: Duration(seconds: 2), // Animation time
     )..repeat(reverse: true); // Repeats back and forth
-    _sizeAnimation = Tween<double>(begin: 100, end: 300).animate(_controller);
+    _sizeAnimation = Tween<double>(begin: 100, end: 150).animate(_controller);
 
     // _animation =
     //     CurvedAnimation(parent: _controller, curve: Curves.easeInOutCubic);
