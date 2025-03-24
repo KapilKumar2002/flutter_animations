@@ -98,11 +98,11 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
           Positioned.fill(
             child: Image.asset('assets/background.png', fit: BoxFit.cover),
           ),
+          for (double top in [200, 300, 400]) buildFlyingBird(top),
           _buildCloud(100, left: true),
           _buildCloud(100, left: false),
           _buildRainyCloud(165, left: true),
           _buildRainyCloud(165, left: false),
-          for (double top in [200, 300, 400]) buildFlyingBird(top),
           _buildNextButton(context),
           _buildControlButtons(),
         ],
@@ -142,8 +142,14 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
     return AnimatedBuilder(
       animation: _birdController,
       builder: (context, child) {
-        return Positioned(
-          top: top,
+        double screenHeight = MediaQuery.of(context).size.height;
+        bool isPaused =
+            !_lottieController.isAnimating && !_lottieController.isCompleted;
+
+        return AnimatedPositioned(
+          duration: isPaused ? const Duration(seconds: 2) : Duration.zero,
+          curve: Curves.easeInOut,
+          top: isPaused ? screenHeight / 2 : top, // Bird drops when paused
           left: _birdAnimation.value - top,
           child: Transform(
             alignment: Alignment.center,

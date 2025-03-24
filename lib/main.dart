@@ -1,6 +1,7 @@
 // main.dart
 import 'package:flutter/material.dart';
 import 'package:learn_animations/animations/animated_list_example.dart';
+import 'package:learn_animations/animations/book_animation.dart';
 import 'package:learn_animations/animations/custom_animation_1.dart';
 import 'package:learn_animations/animations/draggable.dart';
 import 'package:learn_animations/animations/physics_model.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: LoginPage(),
+      home: BookAnimationScreen(),
     );
   }
 }
