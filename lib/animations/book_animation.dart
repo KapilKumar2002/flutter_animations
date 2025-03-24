@@ -48,6 +48,7 @@ class _BookAnimationScreenState extends State<BookAnimationScreen>
       // Revert the flip
       _controller.animateTo(0.0, duration: const Duration(milliseconds: 300));
     }
+    print(_controller.value);
   }
 
   @override
@@ -113,6 +114,23 @@ class _BookAnimationScreenState extends State<BookAnimationScreen>
                       ),
                     ),
                   ),
+                  if (_controller.value == 1.0)
+                    Positioned(
+                      left: 0,
+                      child: GestureDetector(
+                        onTap: () {
+                          print("object");
+                          _controller.animateTo(0.0,
+                              duration: const Duration(milliseconds: 500));
+                        },
+                        child: Container(
+                          width: scaledPageWidth,
+                          height: scaledPageHeight,
+                          color: Colors
+                              .transparent, // Must set a color to detect gestures
+                        ),
+                      ),
+                    ),
                 ],
               ),
             );
